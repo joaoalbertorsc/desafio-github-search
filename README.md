@@ -2,6 +2,8 @@
 
 This project is an Android application developed as part of the GitHub Search Challenge. The app allows users to search for a GitHub user and view a list of their public repositories.
 
+This project is a challenge from the **Cognizant - Mobile Developer** bootcamp on the **DIO** platform.
+
 ![image](https://user-images.githubusercontent.com/5827265/188474294-4472bcc0-24ee-4ccd-80a8-7cee0372e7fa.png)
 
 ## About the Project
@@ -38,6 +40,8 @@ The goal was to build a simple yet functional Android app that demonstrates key 
 # Desafio GitHub Search 🇧🇷
 
 Este projeto é uma aplicação Android desenvolvida como parte do Desafio GitHub Search. O aplicativo permite que os usuários pesquisem por um usuário do GitHub e vejam uma lista de seus repositórios públicos.
+
+Este projeto é um desafio do bootcamp **Cognizant - Mobile Developer** da plataforma **DIO**.
 
 ![image](https://user-images.githubusercontent.com/5827265/188474294-4472bcc0-24ee-4ccd-80a8-7cee0372e7fa.png)
 
