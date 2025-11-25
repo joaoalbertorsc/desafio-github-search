@@ -4,44 +4,61 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    namespace = "br.com.igorbag.githubsearch"
+
+    // DEFINIDO COMO 34 (Android 14)
+    // É a versão mais estável e recomendada se a 35 estiver dando avisos.
+    compileSdk = 34
 
     defaultConfig {
-        applicationId "br.com.igorbag.githubsearch"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        applicationId = "br.com.igorbag.githubsearch"
+        minSdk = 24 // Subido para 24 para garantir compatibilidade com Retrofit/OkHttp modernos
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Target alinhado com o Compile (34)
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled = false
+            proguardFiles(getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro')
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        // ATUALIZADO: Java 21
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        // ATUALIZADO: JVM 21
+        jvmTarget = '21'
     }
 }
 
 dependencies {
+    // Bibliotecas Core (Compatíveis com SDK 34)
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
+    // Interface (Material Design & ConstraintLayout)
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    // Retrofit (HTTP Client): https://square.github.io/retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // Testes
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+    // Retrofit & Gson (Versões 2025)
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+
+    // Coroutines (Essencial para projetos Kotlin modernos)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0'
 }
