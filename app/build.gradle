@@ -6,15 +6,11 @@ plugins {
 android {
     namespace = "br.com.igorbag.githubsearch"
 
-    // DEFINIDO COMO 34 (Android 14)
-    // É a versão mais estável e recomendada se a 35 estiver dando avisos.
     compileSdk = 34
 
     defaultConfig {
         applicationId = "br.com.igorbag.githubsearch"
-        minSdk = 24 // Subido para 24 para garantir compatibilidade com Retrofit/OkHttp modernos
-
-        // Target alinhado com o Compile (34)
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -30,35 +26,38 @@ android {
     }
 
     compileOptions {
-        // ATUALIZADO: Java 21
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        // ATUALIZADO: JVM 21
         jvmTarget = '21'
     }
 }
 
 dependencies {
-    // Bibliotecas Core (Compatíveis com SDK 34)
     implementation 'androidx.core:core-ktx:1.13.1'
     implementation 'androidx.appcompat:appcompat:1.7.0'
-
-    // Interface (Material Design & ConstraintLayout)
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    // Testes
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    // Activity & Fragment KTX (Required for 'by viewModels()')
+    implementation 'androidx.activity:activity-ktx:1.9.2'
+    implementation 'androidx.fragment:fragment-ktx:1.8.4'
 
-    // Retrofit & Gson (Versões 2025)
+    // Lifecycle (ViewModel & LiveData)
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.6'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.6'
+
+    // Retrofit & Gson
     implementation 'com.squareup.retrofit2:retrofit:2.11.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
 
-    // Coroutines (Essencial para projetos Kotlin modernos)
+    // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
